@@ -1,53 +1,95 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>免費 7 天 VIP 體驗｜EdgePicks 運動賽事 AI 預測</title>
-<meta name="description" content="立即加入即送 7 天 VIP 預測權限：MLB・NBA・足球，職業分析師 × AI 量化模型。">
-<meta property="og:title" content="免費 7 天 VIP 體驗｜EdgePicks">
-<meta property="og:description" content="立即加入即送 7 天 VIP 預測權限・每日精選・賽後公開對帳。">
-<meta property="og:image" content="./lp-vip7.webp">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title></title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-html,body{height:100%;background:#05060f}
-body{display:flex;align-items:center;justify-content:center;font-family:-apple-system,'Noto Sans TC',sans-serif;overflow:hidden}
-body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 80% 50% at 50% 45%,rgba(0,90,160,.18),transparent 70%);pointer-events:none}
-.stage{position:relative;animation:floaty 5.5s ease-in-out infinite}
-@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-.poster{display:block;height:auto;width:auto;max-height:97dvh;max-width:97vw;border-radius:10px}
-.fx{position:absolute;pointer-events:none}
-.holo-glow{left:50%;top:62.5%;width:60%;height:13%;transform:translate(-50%,-50%);background:radial-gradient(ellipse at center,rgba(0,212,255,.6),rgba(0,150,255,.18) 48%,transparent 72%);filter:blur(7px);mix-blend-mode:screen;animation:glowpulse 2.6s ease-in-out infinite}
-@keyframes glowpulse{0%,100%{opacity:.4;transform:translate(-50%,-50%) scale(.9)}50%{opacity:.9;transform:translate(-50%,-50%) scale(1.14)}}
-.ring{left:50%;top:63%;width:42%;aspect-ratio:3.1/1;transform:translate(-50%,-50%);border:2px solid rgba(0,212,255,.55);border-radius:50%;mix-blend-mode:screen;animation:ringout 3s ease-out infinite}
-.ring.r2{animation-delay:1.5s}
-@keyframes ringout{0%{opacity:.75;transform:translate(-50%,-50%) scale(.45)}100%{opacity:0;transform:translate(-50%,-50%) scale(1.7)}}
-.parts{left:30%;top:44%;width:40%;height:22%;mix-blend-mode:screen}
-.parts i{position:absolute;bottom:0;width:4px;height:4px;border-radius:50%;background:#8af3ff;box-shadow:0 0 9px #00d4ff,0 0 4px #fff;opacity:0;animation:rise linear infinite}
-@keyframes rise{0%{opacity:0;transform:translateY(0) scale(.5)}12%{opacity:1}100%{opacity:0;transform:translateY(-135px) scale(1.15)}}
-.scan{left:22%;top:36%;width:56%;height:2px;background:linear-gradient(90deg,transparent,#9beaff,transparent);mix-blend-mode:screen;filter:blur(1px);animation:scan 3.6s ease-in-out infinite}
-@keyframes scan{0%{top:36%;opacity:0}18%{opacity:.85}80%{opacity:.85}100%{top:57%;opacity:0}}
-.cta{position:absolute;left:10%;top:89.5%;width:80%;height:8%;display:block;z-index:5;
-  -webkit-clip-path:polygon(6% 0,94% 0,100% 50%,94% 100%,6% 100%,0 50%);
-  clip-path:polygon(6% 0,94% 0,100% 50%,94% 100%,6% 100%,0 50%);
-  animation:ctaflash 1.8s ease-in-out infinite}
-/* 六角形閃光:幾乎不蓋底色(不弄髒按鈕),主要靠 drop-shadow 沿六角形向外發光 */
-@keyframes ctaflash{0%,100%{background:rgba(120,210,255,.02);filter:drop-shadow(0 0 3px rgba(0,212,255,.2))}50%{background:rgba(120,210,255,.06);filter:drop-shadow(0 0 20px rgba(0,212,255,.9)) drop-shadow(0 0 22px rgba(255,45,120,.55))}}
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    width: 100%;
+    min-height: 100%;
+    background: radial-gradient(circle at 50% 30%, #1c1f2b 0%, #0a0b10 70%);
+    overflow: hidden;
+  }
+  .stage {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  /* 手機外框 */
+  .phone {
+    position: relative;
+    width: min(86vw, calc(88vh * 9 / 16), 460px);
+    height: auto;
+    aspect-ratio: 9 / 16;
+    background: #0d0d10;
+    border-radius: 46px;
+    padding: 12px;
+    box-shadow:
+      0 0 0 2px #2a2c36,
+      0 30px 70px rgba(0,0,0,.65),
+      0 8px 24px rgba(0,0,0,.5);
+  }
+  /* 螢幕 */
+  .screen {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 36px;
+    overflow: hidden;
+    background: #000;
+  }
+  .screen video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+  /* 動態島 */
+  .island {
+    position: absolute;
+    top: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 34%;
+    height: 26px;
+    background: #000;
+    border-radius: 16px;
+    z-index: 2;
+  }
 </style>
 </head>
 <body>
-<div class="stage">
-  <img class="poster" src="./lp-vip7.webp" alt="免費 7 天 VIP 體驗 — EdgePicks 運動賽事 AI 預測" width="1122" height="1402">
-  <div class="fx holo-glow"></div>
-  <div class="fx ring"></div><div class="fx ring r2"></div>
-  <div class="fx parts" id="parts"></div>
-  <div class="fx scan"></div>
-  <!-- ⚠️ CTA 連到主站登入領VIP；如需帶代理碼/UTM 在此改 -->
-  <a class="cta" href="https://t.me/picks168_bot?start=ad_vip7" aria-label="立即領取體驗資格"></a>
-</div>
-<script>
-(function(){var pc=document.getElementById('parts');for(var i=0;i<12;i++){var s=document.createElement('i');s.style.left=(6+Math.random()*88)+'%';s.style.animationDelay=(Math.random()*3.2)+'s';s.style.animationDuration=(2.6+Math.random()*1.6)+'s';pc.appendChild(s);}})();
-</script>
+  <div class="stage">
+    <div class="phone">
+      <div class="screen">
+        <div class="island"></div>
+        <video id="v" src="video.mp4" autoplay loop playsinline webkit-playsinline></video>
+      </div>
+    </div>
+  </div>
+  <script>
+    // 預設開聲音；若瀏覽器擋下有聲自動播放，使用者一碰畫面立刻補上聲音
+    var v = document.getElementById('v');
+    v.muted = false;
+    v.volume = 1;
+    function ensureSound() {
+      v.muted = false;
+      v.volume = 1;
+      v.play().catch(function(){});
+    }
+    v.play().catch(function () {
+      // 被擋下：先靜音播放，等互動再開聲
+      v.muted = true;
+      v.play().catch(function(){});
+    });
+    ['click', 'touchstart', 'keydown'].forEach(function (e) {
+      document.addEventListener(e, ensureSound, { once: false });
+    });
+  </script>
 </body>
 </html>
