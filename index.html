@@ -107,7 +107,7 @@
   <!-- INTERACTIVE VIDEO HERO -->
   <section class="story" id="interactiveStory">
     <div class="story-pin">
-      <video class="story-video" id="storyVideo" src="assets/edgepicks-scroll.mp4" muted playsinline preload="auto" aria-label="EdgePicks AI 賽事數據動畫"></video>
+      <video class="story-video" id="storyVideo" src="assets/edgepicks-scroll.mp4" muted playsinline autoplay preload="auto" aria-label="EdgePicks AI 賽事數據動畫"></video>
       <div class="story-shade"></div>
       <div class="story-progress"><span id="storyProgress"></span></div>
       <div class="story-hint">向下滑動・控制影片</div>
@@ -172,7 +172,26 @@
 
   let duration = Number.isFinite(video.duration) ? video.duration : 0;
   let ticking = false;
+  let primed = false;
   video.muted = true;
+
+  // 手機瀏覽器對從沒真的 play() 過的 <video> 常常不會解碼渲染畫面，
+  // 只用 currentTime 捲動控制會整段黑掉。這裡先真的播放一次立刻暫停「預熱」解碼器，
+  // 若瀏覽器封鎖自動播放（例如省流量模式），改成使用者第一次觸碰/捲動時再補播一次。
+  function primeVideo(){
+    if (primed) return;
+    const p = video.play();
+    if (p && typeof p.then === 'function') {
+      p.then(function(){ primed = true; video.pause(); render(); }).catch(function(){
+        const retry = function(){ primeVideo(); };
+        window.addEventListener('touchstart', retry, {once:true, passive:true});
+        window.addEventListener('scroll', retry, {once:true, passive:true});
+      });
+    } else {
+      primed = true;
+      video.pause();
+    }
+  }
 
   function render(){
     const rect = story.getBoundingClientRect();
@@ -196,12 +215,11 @@
 
   video.addEventListener('loadedmetadata', function(){
     duration = video.duration || 0;
-    video.pause();
-    render();
+    primeVideo();
   });
   if (video.readyState >= 1) {
     duration = video.duration || 0;
-    video.pause();
+    primeVideo();
   }
   window.addEventListener('scroll', requestRender, {passive:true});
   window.addEventListener('resize', requestRender);
