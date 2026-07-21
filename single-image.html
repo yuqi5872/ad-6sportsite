@@ -32,11 +32,6 @@
   .btn:active{transform:translateY(1px) scale(.99)}
   .note{margin:9px 0 0;font-size:10.5px;line-height:1.5;color:#7d8989;text-align:center}
 
-  .promo-badge{flex:none;display:flex;align-items:center;justify-content:center;gap:9px;padding:14px 16px;text-align:center;background:linear-gradient(90deg,#c9a15a,#f8e6b8,#c9a15a);background-size:200% 100%;animation:promo-sheen 2.4s linear infinite;color:#14110b;font-weight:800;font-size:17px;letter-spacing:.01em;line-height:1.3;box-shadow:0 2px 18px rgba(201,161,90,.5)}
-  .promo-dot{width:10px;height:10px;border-radius:50%;background:#e0335a;flex:none;box-shadow:0 0 8px rgba(224,51,90,.9);animation:ep-dot 1.1s ease-in-out infinite}
-  @keyframes ep-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.85)}}
-  @keyframes promo-sheen{0%{background-position:0% 0}100%{background-position:200% 0}}
-
   /* 人物+三面板疊加動態發光：靜態圖上疊 radial-gradient 光暈，screen 混合只加光不蓋圖 */
   .glow{position:absolute;border-radius:50%;filter:blur(26px);mix-blend-mode:screen;pointer-events:none;animation:glow-pulse 2.8s ease-in-out infinite}
   .glow-person{top:6%;left:16%;width:68%;height:44%;background:radial-gradient(circle,rgba(255,224,170,.55),transparent 70%)}
@@ -48,7 +43,6 @@
 </head>
 <body>
 <div class="wrap">
-  <div class="promo-badge"><span class="promo-dot"></span><span>註冊送 NT$368・首儲 100% 最高再拿 2,000</span></div>
   <div class="hero">
     <img src="assets/hero-3sports-single.webp" alt="EdgePicks MLB・NBA・世界足球 AI賽事預測，精選命中率72.4%">
     <div class="glow glow-person"></div>
