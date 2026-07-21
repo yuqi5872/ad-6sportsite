@@ -31,10 +31,16 @@
   .btn{display:block;width:100%;text-align:center;padding:16px;border-radius:12px;background:#c9a15a;color:#14110b;font-weight:800;font-size:16px;border:none;text-decoration:none;font-family:inherit}
   .btn:active{transform:translateY(1px) scale(.99)}
   .note{margin:9px 0 0;font-size:10.5px;line-height:1.5;color:#7d8989;text-align:center}
+
+  .promo-badge{flex:none;display:flex;align-items:center;justify-content:center;gap:7px;padding:9px 14px;text-align:center;background:linear-gradient(90deg,#c9a15a,#f0dca8,#c9a15a);background-size:200% 100%;animation:promo-sheen 3s linear infinite;color:#14110b;font-weight:800;font-size:13.5px;letter-spacing:.01em;line-height:1.35}
+  .promo-dot{width:8px;height:8px;border-radius:50%;background:#e0335a;flex:none;box-shadow:0 0 6px rgba(224,51,90,.8);animation:ep-dot 1.1s ease-in-out infinite}
+  @keyframes ep-dot{0%,100%{opacity:1}50%{opacity:.3}}
+  @keyframes promo-sheen{0%{background-position:0% 0}100%{background-position:200% 0}}
 </style>
 </head>
 <body>
 <div class="wrap">
+  <div class="promo-badge"><span class="promo-dot"></span><span>註冊送 NT$368・首儲 100% 最高再拿 2,000</span></div>
   <div class="hero"><img src="assets/hero-3sports-single.webp" alt="EdgePicks MLB・NBA・世界足球 AI賽事預測，精選命中率72.4%"></div>
   <div class="cta-bar">
     <a class="btn" href="https://t.me/picks168_bot?start=ad_vip7&amp;utm_source=fb&amp;utm_medium=cpc&amp;utm_campaign=3sports_singleimg_v1&amp;utm_content=single_image" onclick="window.gtag&&gtag('event','cta_click',{cta:'lp_singleimg_to_bot',utm_source:'fb',utm_medium:'cpc',utm_campaign:'3sports_singleimg_v1',utm_content:'single_image'})">免費領 7 天 VIP →</a>
